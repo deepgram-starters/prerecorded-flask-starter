@@ -6,14 +6,25 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app =   Flask(__name__, static_folder='./build', static_url_path='/')
+
+@app.route('/', methods = ['GET'])
+def index():
+	return app.send_static_file('index.html')
+
 deepgram = Deepgram(os.getenv("deepgram_api_key"))
 
 @app.route('/api', methods = ['POST'])
-def transcribe():
-	body, files = request
-	url, features, model, version, tier = body
+async def transcribe():
+	form = request.form
+	files = request.files
+	url = form.get('url')
+	features = form.get('features')
+	model = form.get('model')
+	version = form.get('version')
+	tier = form.get('tier')
+
 	dgFeatures = json.loads(features)
-	dgRequest
+	dgRequest = None
 
 	try:
 		if url and url.startswith("https://res.cloudinary.com/deepgram"):
@@ -21,15 +32,12 @@ def transcribe():
 				"url": url 
 			}
 
-		if files["file"]:
-			file = files["file"]
+		if 'file' in files:
+			file = files.get('file')
 			dgRequest = {
 				"mimetype": file.mimetype,
 				"buffer": file.stream.read()
 			}
-
-		if not dgRequest:
-			raise Exception("Error: You need to choose a file to transcribe your own audio.")
 		
 		dgFeatures["model"] = model;
 		
@@ -39,25 +47,24 @@ def transcribe():
 		if model == "whisper":
 			dgFeatures["tier"] = tier;
 
-		transcription = deepgram.transcription.prerecorded(dgRequest, dgFeatures)
+		if not dgRequest:
+			raise Exception("Error: You need to choose a file to transcribe your own audio.")
+
+		transcription = await deepgram.transcription.prerecorded(dgRequest, dgFeatures)
 
 		return jsonify({
 			"model": model,
 			"version": version,
 			"tier": tier,
-			"dgRequest": dgRequest,
 			"dgFeatures": dgFeatures,
 			"transcription": transcription,
 		})
-	except Exception as err:
-		if err.message:
-			abort(make_response(jsonify(err=err.message), 500))
-		else:
-			abort(make_response(jsonify(err=err), 500))
+	except Exception as error:
+		return json_abort(error)
 
-@app.route('/', methods = ['GET'])
-def index():
-	return app.send_static_file('index.html')
+def json_abort(message):
+	print(message)
+	return abort(make_response(jsonify(err=str(message)), 500))
 
 if __name__=='__main__':
 	app.run(debug=True)
