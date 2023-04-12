@@ -1,10 +1,8 @@
-# Deepgram [Language] Starters
+# Deepgram Python Starters
 
-Please check out the starters contained in this repository, for examples of how to build Deepgram into your [Language] applications.
+Please check out the starters contained in this repository, for examples of how to build Deepgram into your Python-based applications. The starters can be found in their own directories.
 
-- [Web App](./Starter-01/README.md)
-- [Websockets](./Starter-01/README.md)
-- [Command-line](./Starter-01/README.md)
+- [Deepgram Python Starter](./Starter-01/README.md)
 
 ## What is Deepgram?
 
