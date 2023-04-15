@@ -39,5 +39,5 @@ deepgram_api_key=api_key
 Once running, you can [access the application in your browser](http://localhost:5000/).
 
 ```bash
-flash run --debug
+flask run --debug
 ```
