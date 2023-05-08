@@ -1,4 +1,4 @@
-# Deepgram Python Starter
+# Deepgram Flask Starter
 
 This sample demonstrates interacting with the Deepgram API from Python. It uses the Deepgram Python SDK, and has a React companion application to interact with the Python integration.
 
