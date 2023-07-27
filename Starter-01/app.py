@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request, abort, make_response
 from deepgram import Deepgram
 import os
 from dotenv import load_dotenv
+from flask_cors import CORS
 load_dotenv()
 
 app =   Flask(__name__, static_folder='./build', static_url_path='/')
@@ -12,6 +13,7 @@ def index():
 	return app.send_static_file('index.html')
 
 deepgram = Deepgram(os.getenv("deepgram_api_key"))
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 @app.route('/api', methods = ['POST'])
 async def transcribe():
