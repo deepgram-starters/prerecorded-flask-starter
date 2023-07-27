@@ -30,7 +30,7 @@ pip install -r requirements.txt
 Copy the text from `.env-sample` and create a new file called `.env`. Paste in the code and enter your API key you generated in the [Deepgram console](https://console.deepgram.com/).
 
 ```bash
-port=3000
+port=5000
 deepgram_api_key=api_key
 ```
 
