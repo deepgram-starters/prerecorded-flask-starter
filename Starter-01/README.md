@@ -1,6 +1,6 @@
 # Deepgram Flask Starter
 
-This sample demonstrates interacting with the Deepgram API from Python. It uses the Deepgram Python SDK, and has a React companion application to interact with the Python integration.
+This sample demonstrates interacting with the Deepgram API from Python, Flask. It uses the Deepgram Python SDK, with a javascript client built from web components.
 
 ## Sign-up to Deepgram
 
