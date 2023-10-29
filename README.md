@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 Copy the code from `sample.env` and create a new file called `.env`. Paste in the code and enter your API key you generated in the [Deepgram console](https://console.deepgram.com/).
 
-```json
+```bash
 DEEPGRAM_API_KEY=%api_key%
 ```
 
