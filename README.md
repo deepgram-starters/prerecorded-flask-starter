@@ -1,8 +1,70 @@
-# Deepgram Python Starters
+# Deepgram Flask Starter
 
-Please check out the starters contained in this repository, for examples of how to build Deepgram into your Python-based applications. The starters can be found in their own directories.
+This sample demonstrates interacting with the Deepgram API from Flask to make transcriptions of prerecorded files. It uses the Deepgram Python SDK, with a javascript client built from web components (no `npm` requirements).
 
-- [Deepgram Python Starter](./Starter-01/README.md)
+## Sign-up to Deepgram
+
+Before you start, it's essential to generate a Deepgram API key to use in this project. [Sign-up now for Deepgram](https://console.deepgram.com/signup).
+
+## Quickstart
+
+### Manual
+
+Follow these steps to get started with this starter application.
+
+#### Clone the repository
+
+Go to GitHub and [clone the repository](https://github.com/deepgram-starters/prerecorded-flask-starter).
+
+#### Install dependencies
+
+Install the project dependencies.
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Edit the config file
+
+Copy the code from `sample.env` and create a new file called `.env`. Paste in the code and enter your API key you generated in the [Deepgram console](https://console.deepgram.com/).
+
+```json
+DEEPGRAM_API_KEY=%api_key%
+```
+
+#### Run the application
+
+The `dev` script will run a web and API server concurrently. Once running, you can [access the application in your browser](http://localhost:8080/).
+
+```bash
+flask run -p 8080
+```
+
+## Setting up a Python developer environment
+
+Install `virtualenv`.
+
+```bash
+pip install virtualenv
+```
+
+Create a virtual environment.
+
+```bash
+python -m venv env
+```
+
+Activate the environment.
+
+```bash
+source env/bin/activate
+```
+
+Then install your dependencies with pip and they will be installed in the virtual environment rather than your user.
+
+```bash
+pip install -r requirements.txt
+```
 
 ## What is Deepgram?
 
@@ -24,7 +86,7 @@ Before you start, it's essential to generate a Deepgram API key to use in our st
 
 ## Issue Reporting
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Security Policy](./.github/SECURITY.md) details the procedure for contacting Deepgram.
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Security Policy](./SECURITY.md) details the procedure for contacting Deepgram.
 
 ## Author
 
