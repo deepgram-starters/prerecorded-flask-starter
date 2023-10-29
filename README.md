@@ -1,4 +1,4 @@
-# Deepgram Flask Starter
+# Prerecorded Flask Starter
 
 This sample demonstrates interacting with the Deepgram API from Flask to make transcriptions of prerecorded files. It uses the Deepgram Python SDK, with a javascript client built from web components (no `npm` requirements).
 
