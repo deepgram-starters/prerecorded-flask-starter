@@ -34,7 +34,7 @@ DEEPGRAM_API_KEY=%api_key%
 
 #### Run the application
 
-The `dev` script will run a web and API server concurrently. Once running, you can [access the application in your browser](http://localhost:8080/).
+Once running, you can [access the application in your browser](http://localhost:8080/).
 
 ```bash
 flask run -p 8080
